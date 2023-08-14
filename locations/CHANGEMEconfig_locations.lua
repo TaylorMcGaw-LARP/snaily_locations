@@ -1,5 +1,5 @@
 --[[
-    Sonoran Plugins
+    snaily Plugins
 
     Plugin Configuration
 
@@ -8,7 +8,7 @@
 local config = {
     enabled = false,
     pluginName = "locations", -- name your plugin here
-    pluginAuthor = "SonoranCAD", -- author
+    pluginAuthor = "snailyCAD", -- author
     requiresPlugins = {}, -- required plugins for this plugin to work, separated by commas
 
     -- put your configuration options below

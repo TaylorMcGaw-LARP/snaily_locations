@@ -2,7 +2,7 @@
     Sonaran CAD Plugins
 
     Plugin Name: locations
-    Creator: SonoranCAD
+    Creator: snailyCAD
     Description: Implements location updating for players
 ]]
 local pluginConfig = Config.GetPluginConfig("locations")
@@ -40,8 +40,8 @@ if pluginConfig.enabled then
     end)
 
     -- Event from client when location changes occur
-    RegisterServerEvent('SonoranCAD::locations:SendLocation')
-    AddEventHandler('SonoranCAD::locations:SendLocation', function(currentLocation)
+    RegisterServerEvent('snailyCAD::locations:SendLocation')
+    AddEventHandler('snailyCAD::locations:SendLocation', function(currentLocation)
         local source = source
         local identifier = GetIdentifiers(source)[Config.primaryIdentifier]
         if identifier == nil then
@@ -56,8 +56,8 @@ if pluginConfig.enabled then
         LocationCache[source] = nil
     end)
 
-    RegisterNetEvent("SonoranCAD::locations:ErrorDetection")
-    AddEventHandler("SonoranCAD::locations:ErrorDetection", function(isInitial)
+    RegisterNetEvent("snailyCAD::locations:ErrorDetection")
+    AddEventHandler("snailyCAD::locations:ErrorDetection", function(isInitial)
         if isInitial then
             errorLog(("Player %s reported an error sending initial location data. Check client logs for errors. Did you set up the postals plugin correctly?"):format(source))
         else

@@ -2,7 +2,7 @@
     Sonaran CAD Plugins
 
     Plugin Name: locations
-    Creator: SonoranCAD
+    Creator: snailyCAD
     Description: Implements location updating for players
 ]]
 local pluginConfig = Config.GetPluginConfig("locations")
@@ -36,7 +36,7 @@ if pluginConfig.enabled then
             elseif postal == nil and pluginConfig.prefixPostal == true then
                 debugLog("Unable to send postal because I got a null response from getNearestPostal()?!")
             end
-            TriggerServerEvent('SonoranCAD::locations:SendLocation', toSend) 
+            TriggerServerEvent('snailyCAD::locations:SendLocation', toSend) 
             debugLog(("Locations different, sending. (%s = %s) SENT: %s"):format(currentLocation, lastLocation, toSend))
             lastSentTime = GetGameTimer()
             lastLocation = currentLocation
@@ -63,7 +63,7 @@ if pluginConfig.enabled then
             end
             Wait(10000)
             if lastSentTime == nil then
-                TriggerServerEvent("SonoranCAD::locations:ErrorDetection", true)
+                TriggerServerEvent("snailyCAD::locations:ErrorDetection", true)
                 warnLog("Warning: No location data has been sent yet. Check for errors.")
             end
             Wait(30000)
